@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ColourCurv</title>
+</head>
+<body>
+<div class="page-wrapper">
+    <div class="header">
+      <div class="logo">
+        <p>ColourCurv</p>
+      </div>
+      <ul class="links">
+        <li>link 1</li>
+        <li>link 2</li>
+      </ul>
+
+    </div>
+    <div class="content">
+        <div class="settings-card">
+          <h5>Settings</h5>
+          <div class="colour">
+            <label for="brand-colour-picker">Brand Colour</label> 
+            <input type="color" id="brand-colour-picker">
+          </div>
+          <div class="hue">
+            <label for="hue-value">Base Hue</label>
+            <input type="number" id="hue-value" min="0" max="360">
+
+          </div>
+          <div class="saturation">
+            <label for="saturation-value">Base Saturation</label>
+            <span><input type="number" id="saturation-value" min="0" max="100">%</span>
+
+          </div>
+          <div class="scale">
+            <label for="scale-select">Lightness Scale</label>
+            <select name="scale" id="scale-select">
+                <option value="Linear">Linear</option>
+                <option value="QuadInOut">Quad InOut</option>
+                <option value="CubicInOut">Cubic InOut</option>
+                <option value="QuartInOut">Quart InOut</option>
+                <option value="QuintInOut">Quint InOut</option>
+            </select>
+          </div>
+          <div class="lightness">
+            <p><label for="min-lightness">Min </label><label for="max-lightness">Max </label>Lightness</p>
+            <span><input type="number" id="min-lightness" min="0" max="100">%</span>
+            <span><input type="number" id="max-lightness" min="0" max="100">%</span>
+          </div>
+
+        </div>
+        
+        <div class="colours-card">
+          <div class="colours-card-header">
+              <h5>Colours</h5>
+              <button class="export-button">Export Palette</button>
+          </div>
+        <div class="brand-colour">
+            <div class="category">
+                <p>Brand Colour</p> <button class="lock-button">Lock</button>
+            </div>
+            <div class="swatch-strips"></div>
+        </div>
+        <div class="alert-colours">
+            <div class="category">
+                <p>Alert Colours</p> <button class="lock-button">Lock</button>
+            </div>
+            <div class="swatch-strips"></div>
+        </div>
+        <div class="success-colours">
+            <div class="category">
+                <p>Success Colours</p> <button class="lock-button">Lock</button>
+            </div>
+            <div class="swatch-strips"></div>
+        </div>
+        <div class="notification-colours">
+            <div class="category">
+                <p>Notification Colours</p> <button class="lock-button">Lock</button>
+            </div>
+            <div class="swatch-strips"></div>
+        </div>
+        <div class="UI-colours">
+            <div class="category">
+                <p>UI Colours</p> <button class="lock-button">Lock</button>
+            </div>
+            <div class="swatch-strips"></div>
+        </div>
+        </div>
+
+
+    </div>
+</div>
+</body>
+</html>
