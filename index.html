@@ -3,51 +3,78 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="stylesheet" href="styles.css">
     <title>ColourCurv</title>
 </head>
 <body>
 <div class="page-wrapper">
     <div class="header">
       <div class="logo">
-        <p>ColourCurv</p>
+        <img src="https://placehold.co/400" alt="placeholder for logo">
+        <span>ColourCurv</span>
       </div>
-      <ul class="links">
-        <li>link 1</li>
-        <li>link 2</li>
-      </ul>
+      <div class="links">
+        <div><a href="support-page-placeholder">Support</a></div>
+        <div><a href="feedback-page-placeholder">Feedback</a></div>
+      </div>
 
     </div>
     <div class="content">
         <div class="settings-card">
           <h5>Settings</h5>
-          <div class="colour">
-            <label for="brand-colour-picker">Brand Colour</label> 
-            <input type="color" id="brand-colour-picker">
+          <div class="brand-colour">
+            <div class="brand-colour-text">
+              <label for="brand-colour-picker">Brand Colour</label><i class="ph ph-question"></i>
+            </div>
+            <div class="brand-colour-input">
+              <input type="color" id="brand-colour-picker"><i class="ph ph-caret-up-down"></i>
+            </div>
           </div>
+
           <div class="hue">
-            <label for="hue-value">Base Hue</label>
-            <input type="number" id="hue-value" min="0" max="360">
+            <div class="hue-value-text">
+              <label for="hue-value">Base Hue</label><i class="ph ph-question"></i>
+            </div>
+            <div class="hue-value-input">
+              <input type="quantity" id="hue-value" min="0" max="360"><i class="ph ph-caret-up-down"></i>
+            </div>
 
           </div>
           <div class="saturation">
-            <label for="saturation-value">Base Saturation</label>
-            <span><input type="number" id="saturation-value" min="0" max="100">%</span>
+            <div class="saturation-value-text">
+              <label for="saturation-value">Base Saturation</label><i class="ph ph-question"></i>
+            </div>
+            <div class="saturation-value-input">
+              <input type="number" id="saturation-value" min="0" max="100"><i class="ph ph-caret-up-down"></i>
+            </div>
 
           </div>
           <div class="scale">
-            <label for="scale-select">Lightness Scale</label>
-            <select name="scale" id="scale-select">
-                <option value="Linear">Linear</option>
-                <option value="QuadInOut">Quad InOut</option>
-                <option value="CubicInOut">Cubic InOut</option>
-                <option value="QuartInOut">Quart InOut</option>
-                <option value="QuintInOut">Quint InOut</option>
-            </select>
+            <div class="scale-select-text">
+              <label for="scale-select">Lightness Scale</label><i class="ph ph-question"></i>
+            </div>
+            <div class="scale-input">
+              <select name="scale" id="scale-select">
+                  <option value="Linear">Linear</option>
+                  <option value="QuadInOut">Quad InOut</option>
+                  <option value="CubicInOut">Cubic InOut</option>
+                  <option value="QuartInOut">Quart InOut</option>
+                  <option value="QuintInOut">Quint InOut</option>
+              </select><i class="ph ph-caret-up-down"></i>
+            </div>
           </div>
+
           <div class="lightness">
-            <p><label for="min-lightness">Min </label><label for="max-lightness">Max </label>Lightness</p>
-            <span><input type="number" id="min-lightness" min="0" max="100">%</span>
-            <span><input type="number" id="max-lightness" min="0" max="100">%</span>
+            <div class="lightness-text">
+              <p><label for="min-lightness">Min </label>
+                <label for="max-lightness">Max
+                </label>Lightness<i class="ph ph-question"></i></p>
+            </div>
+            <div class="lightness-input">
+              <input type="number" id="min-lightness" min="0" max="100"><i class="ph ph-caret-up-down"></i>
+              <input type="number" id="max-lightness" min="0" max="100"><i class="ph ph-caret-up-down"></i>
+            </div>
           </div>
 
         </div>
@@ -57,36 +84,104 @@
               <h5>Colours</h5>
               <button class="export-button">Export Palette</button>
           </div>
-        <div class="brand-colour">
-            <div class="category">
-                <p>Brand Colour</p> <button class="lock-button">Lock</button>
-            </div>
-            <div class="swatch-strips"></div>
+        <div class="paletts">
+          <div class="brand-colour">
+              <div class="category">
+                  <p>Brand Colour</p> <button class="lock-button">Lock<i class="ph ph-lock-key-open"></i></button>
+              </div>
+              <div class="swatch-strips">
+                <div class="swatch brand-swatch01"></div>
+                <div class="swatch brand-swatch02"></div>
+                <div class="swatch brand-swatch03"></div>
+                <div class="swatch brand-swatch04"></div>
+                <div class="swatch brand-swatch05"></div>
+                <div class="swatch brand-swatch06"></div>
+                <div class="swatch brand-swatch07"></div>
+                <div class="swatch brand-swatch08"></div>
+                <div class="swatch brand-swatch09"></div>
+                <div class="swatch brand-swatch10"></div>
+                <div class="swatch brand-swatch11"></div>
+                <div class="swatch brand-swatch12"></div>
+              </div>
+          </div>
+          <div class="alert-colours">
+              <div class="category">
+                  <p>Alert Colours</p> <button class="lock-button">Lock<i class="ph ph-lock-key-open"></i></button>
+              </div>
+              <div class="swatch-strips">
+                <div class="swatch alert-swatch01"></div>
+                <div class="swatch alert-swatch02"></div>
+                <div class="swatch alert-swatch03"></div>
+                <div class="swatch alert-swatch04"></div>
+                <div class="swatch alert-swatch05"></div>
+                <div class="swatch alert-swatch06"></div>
+                <div class="swatch alert-swatch07"></div>
+                <div class="swatch alert-swatch08"></div>
+                <div class="swatch alert-swatch09"></div>
+                <div class="swatch alert-swatch10"></div>
+                <div class="swatch alert-swatch11"></div>
+                <div class="swatch alert-swatch12"></div>
+              </div>
+          </div>
+          <div class="success-colours">
+              <div class="category">
+                  <p>Success Colours</p><button class="lock-button">Lock<i class="ph ph-lock-key-open"></i></button>
+              </div>
+              <div class="swatch-strips">
+                <div class="swatch success-swatch01"></div>
+                <div class="swatch success-swatch02"></div>
+                <div class="swatch success-swatch03"></div>
+                <div class="swatch success-swatch04"></div>
+                <div class="swatch success-swatch05"></div>
+                <div class="swatch success-swatch06"></div>
+                <div class="swatch success-swatch07"></div>
+                <div class="swatch success-swatch08"></div>
+                <div class="swatch success-swatch09"></div>
+                <div class="swatch success-swatch10"></div>
+                <div class="swatch success-swatch11"></div>
+                <div class="swatch success-swatch12"></div>
+              </div>
+          </div>
+          <div class="notification-colours">
+              <div class="category">
+                  <p>Notification Colours</p> <button class="lock-button">Lock<i class="ph ph-lock-key-open"></i></button>
+              </div>
+              <div class="swatch-strips">
+                <div class="swatch notification-swatch01"></div>
+                <div class="swatch notification-swatch02"></div>
+                <div class="swatch notification-swatch03"></div>
+                <div class="swatch notification-swatch04"></div>
+                <div class="swatch notification-swatch05"></div>
+                <div class="swatch notification-swatch06"></div>
+                <div class="swatch notification-swatch07"></div>
+                <div class="swatch notification-swatch08"></div>
+                <div class="swatch notification-swatch09"></div>
+                <div class="swatch notification-swatch10"></div>
+                <div class="swatch notification-swatch11"></div>
+                <div class="swatch notification-swatch12"></div>
+              </div>
+          </div>
         </div>
-        <div class="alert-colours">
-            <div class="category">
-                <p>Alert Colours</p> <button class="lock-button">Lock</button>
-            </div>
-            <div class="swatch-strips"></div>
-        </div>
-        <div class="success-colours">
-            <div class="category">
-                <p>Success Colours</p> <button class="lock-button">Lock</button>
-            </div>
-            <div class="swatch-strips"></div>
-        </div>
-        <div class="notification-colours">
-            <div class="category">
-                <p>Notification Colours</p> <button class="lock-button">Lock</button>
-            </div>
-            <div class="swatch-strips"></div>
-        </div>
-        <div class="UI-colours">
-            <div class="category">
-                <p>UI Colours</p> <button class="lock-button">Lock</button>
-            </div>
-            <div class="swatch-strips"></div>
-        </div>
+          <div class="UI-colours">
+              <div class="category">
+                  <p>UI Colours</p> <button class="lock-button">Lock<i class="ph ph-lock-key-open"></i></button>
+              </div>
+              <div class="UI-swatch-strips">
+                <div class="swatch UI-swatch01"></div>
+                <div class="swatch UI-swatch02"></div>
+                <div class="swatch UI-swatch03"></div>
+                <div class="swatch UI-swatch04"></div>
+                <div class="swatch UI-swatch05"></div>
+                <div class="swatch UI-swatch06"></div>
+                <div class="swatch UI-swatch07"></div>
+                <div class="swatch UI-swatch08"></div>
+                <div class="swatch UI-swatch09"></div>
+                <div class="swatch UI-swatch10"></div>
+                <div class="swatch UI-swatch11"></div>
+                <div class="swatch UI-swatch12"></div>
+              </div>
+          </div>
+        
         </div>
 
 
