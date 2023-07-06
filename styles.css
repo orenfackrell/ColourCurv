@@ -4,7 +4,11 @@
     --clr-base-text: #0D0D0D;
     --clr-button-alternate-text: #FFFFFF;
     --clr-light-border: #F3F3F3;
-    --clr-dark-border: #323232h
+    --clr-dark-border: #323232;
+}
+
+* {
+    font-family: 'Readex Pro';
 }
 
 body{
@@ -12,103 +16,225 @@ body{
     margin: 0;
     min-height: 100vh;
 }
-.page-wrapper,
-.content,
-.header,
-.logo,
-.links,
-.category,
-.colours-card-header {
+
+.page-wrapper{
     display: flex;
-}
-
-.content,
-.links,
-.category {
-    flex-direction: row;
-}
-
-.page-wrapper { 
+    padding: 24px;
     flex-direction: column;
-    padding: 1.5rem;
-    background-color: var(--clr-page-background);
+    align-items: flex-start;
+    gap: 24px;
 }
 
-.page-wrapper,
-.content{
-    gap: 1.5rem;
-}
-
-.header,
-.settings-card,
-.colours-card {
-    background-color: var(--clr-card-background);
-    border-radius: 1rem;
-}
-
-.header,
-.colours-card-header,
-.category {
+.header {
+    display: flex;
+    padding: 16px 24px;
+    align-items: center;
+    gap: 24px;
+    align-self: stretch;
+    border-radius: 16px;
+    border: 1px solid var(--clr-light-border);
+    background: var(--clr-card-background);
     justify-content: space-between;
-    align-items: center;
-    padding: 1rem 1.5rem;
-}
-
-.logo,
-.links,
-button {
-    text-align: left;
-    align-items: center;
-    padding: 0.5rem 1rem;
-    gap: 1rem;
-}
-
-img {
-    width: 1.5rem;
-    height: 1.5rem;
-}
-
-.links > div{
-    padding: 0.5rem 1rem;
-    border:solid 2px var(--clr-light-border);
-    background-color: var(--clr-page-background);
-}
-
-a {
-    text-decoration: none;
     color: var(--clr-base-text);
 }
 
+h4 {
+    margin: 0;
+}
+
+.link {
+    padding: 8px 16px;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    border-radius: 8px;
+    border: 1px solid var(--ui-10, #F3F3F3);
+    background: var(--ui-12, #FFF);
+}
+
+.content {
+    display: flex;
+    align-items: flex-start;
+    gap: 24px;
+    flex: 1 0 0;
+    align-self: stretch;
+    flex-wrap: wrap;
+}
+
+label {
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+    letter-spacing: -0.16px;
+}
+
+h2 {
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 150%;
+    letter-spacing: -0.24px;
+}
+
+.text-button-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    align-content: center;
+    text-align: center;
+    gap: 0.25rem;
+}
+
+.settings-card {
+    display: flex;
+    padding: 24px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    flex: 1 0;
+    align-self: stretch;
+    border-radius: 8px;
+    border: 1px solid var(--clr-light-border);
+    background: var(--clr-card-background);
+    flex-basis: 30.75rem;
+}
+
+.option {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.5rem;
+    align-self: stretch;
+    padding: 0.25rem;
+}
+
 input,
-button {
-    border: none;
-    border-radius: 0.5rem;
+select {
+    display: flex;
+    padding: 8px 8px 8px 16px;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    border-radius: 8px;     
+    border: 1px solid var(--clr-light-border);
+    background: var(--clr-page-background);
 }
 
-.paletts,
-.swatch-strips,
-.UI-swatch-strips {
-    display: grid;
-    gap: 1.5rem;
+#brand-colour-picker {
+    padding: 0;
 }
 
-.paletts {
-    grid-template-columns: repeat(2, auto)
+.lightness-text {
+    margin: 0;
+}
+
+.lightness-input {
+    display: flex;
+
+    gap: 0.5rem;
+}
+
+.colours-card {
+    display: flex;
+    padding: 24px;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    align-self: stretch;
+    border-radius: 8px;
+    border: 1px solid var(--clr-light-border);
+    background: var(--clr-card-background);
+    flex: 1 0 38.75rem;
+}
+
+.colours-card-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    align-self: stretch;
+    flex: 1 0 0;
+    justify-content: space-between;
+
+}
+
+.export-button {
+    display: flex;
+    padding: 8px 16px;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    border-radius: 8px;
+    border: 1px solid var(--clr-dark-border);
+    background: var(--clr-base-text);
+    color: var(--clr-button-alternate-text);
+}
+
+.UI-colours,
+.notification-colours,
+.success-colours,
+.alert-colours,
+.brand-colour {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    flex: 1 0 0;
+}
+
+
+.category {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    align-self: stretch;
+    justify-content: space-between;
+}
+
+.lock-button {
+    display: flex;
+    padding: 8px 8px 8px 16px;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    border: 1px solid var(--clr-light-border);
+    background: var(--clr-button-alternate-text);
+}
+ 
+.ph-lock-key-open {
+    margin-top: 0.125rem;
+}
+
+/* margin-top to better centre the padlock icon */
+
+.palette-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 24px;
+    align-self: stretch;
 }
 
 .swatch-strips {
-    grid-template-columns: repeat(6, 3rem);
+    display: flex;
+    align-items: flex-start;
+    align-content: flex-start;
     gap: 0.25rem;
+    align-self: stretch;
+    flex-wrap: wrap;
 }
 
-.UI-swatch-strips {
-    grid-template-columns: repeat(12, 3rem);
+.swatch-row {
+    display: flex;
+    flex-direction: row;
     gap: 0.25rem;
+    flex: 1 0 0;
 }
 
 .swatch {
-    height: 3rem;
-    width: 3rem;
+    width: 46px;
+    height: 46px;
+    border: solid red 1px; /* placeholder border for visual clarity */
     border-radius: 0.25rem;
-    border: solid 1px red;
+    flex: 1 0 2.875rem;
 }
