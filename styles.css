@@ -192,6 +192,18 @@ select {
     justify-content: space-between;
 }
 
+.lock-button.open {
+    display: flex;
+    padding: 8px 8px 8px 16px;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    border-radius: 8px;
+    border: 1px solid var(--clr-dark-border);
+    background: var(--clr-base-text);
+    color: var(--clr-button-alternate-text);
+}
+
 .lock-button {
     display: flex;
     padding: 8px 8px 8px 16px;
@@ -201,7 +213,7 @@ select {
     border: 1px solid var(--clr-light-border);
     background: var(--clr-button-alternate-text);
 }
- 
+
 .ph-lock-key-open {
     margin-top: 0.125rem;
 }
@@ -245,4 +257,4 @@ select {
 
 button:hover {
     cursor: pointer;
-}
+}  
