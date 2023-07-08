@@ -238,3 +238,11 @@ select {
     border-radius: 0.25rem;
     flex: 1 0 2.875rem;
 }
+
+.lock-status {
+    width: 1rem;
+}
+
+button:hover {
+    cursor: pointer;
+}
