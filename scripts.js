@@ -10,3 +10,13 @@ lockButtons.forEach((button) => {
     button.classList.toggle('open');
   });
 });
+
+
+const colorInput = document.getElementById('brand-colour-picker');
+
+let colorValue = colorInput.value;
+
+colorInput.addEventListener('input', () =>{
+  document.getElementById('colorVal').textContent = colorInput.value;
+});
+

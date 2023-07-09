@@ -126,8 +126,16 @@ select {
   padding: 0;
 }
 
+.brand-colour-input {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
 .lightness-text {
   margin: 0;
+  text-align: center;
 }
 
 .lightness-input {
@@ -209,10 +217,6 @@ select {
   background: var(--clr-button-alternate-text);
 }
 
-.ph-lock-key-open {
-  margin-top: 0.125rem;
-}
-
 .palette-row {
   display: flex;
   align-items: flex-start;
@@ -241,9 +245,11 @@ select {
   height: 2.875rem;
   border: solid red 1px;
   border-radius: 0.25rem;
+  flex: 1 0 0;
 }
 
-.lock-status {
+.lock-status,
+.info {
   width: 1rem;
 }
 
