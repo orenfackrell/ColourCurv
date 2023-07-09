@@ -111,9 +111,10 @@ h2 {
 }
 
 input,
-select {
+select,
+#colour-val {
   display: flex;
-  padding: 0.5rem 0.5rem 0.5rem 1rem;
+  padding: 0.5rem;
   justify-content: center;
   align-items: center;
   gap: 0.5rem;
