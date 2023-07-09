@@ -125,7 +125,7 @@ colourInput.addEventListener('input', () => {
   let minLightness = Math.round(hslValue.l * 100);
 
   colourValue.textContent = `HSL(${hue}, ${saturation}%, ${minLightness}%)`;
- // colourInput.value = rgbToHex(...Object.values(hslToRGB(hue, saturation, minLightness)));
+  colourInput.value = rgbToHex(...Object.values(hslToRGB(hue, saturation, minLightness)));
 
   hueInput.value = parseInt(hue);
   saturationInput.value = parseInt(saturation);
