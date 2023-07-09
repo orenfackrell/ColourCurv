@@ -1,174 +1,172 @@
 :root {
-    --clr-page-background: #FFFFFF;
-    --clr-card-background: #FCFCFC;
-    --clr-base-text: #0D0D0D;
-    --clr-button-alternate-text: #FFFFFF;
-    --clr-light-border: #F3F3F3;
-    --clr-dark-border: #323232;
+  --clr-page-background: #FFFFFF;
+  --clr-card-background: #FCFCFC;
+  --clr-base-text: #0D0D0D;
+  --clr-button-alternate-text: #FFFFFF;
+  --clr-light-border: #F3F3F3;
+  --clr-dark-border: #323232;
 }
 
 * {
-    font-family: 'Readex Pro';
+  font-family: 'Readex Pro';
 }
 
-body{
-    padding: 0;
-    margin: 0;
-    min-height: 100vh;
+body {
+  padding: 0;
+  margin: 0;
+  min-height: 100vh;
 }
 
-.page-wrapper{
-    display: flex;
-    padding: 24px;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 24px;
+.page-wrapper {
+  display: flex;
+  padding: 1.5rem;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.5rem;
 }
 
 .header {
-    display: flex;
-    padding: 16px 24px;
-    align-items: center;
-    gap: 24px;
-    align-self: stretch;
-    border-radius: 16px;
-    border: 1px solid var(--clr-light-border);
-    background: var(--clr-card-background);
-    justify-content: space-between;
-    color: var(--clr-base-text);
+  display: flex;
+  padding: 1rem 1.5rem;
+  align-items: center;
+  gap: 1.5rem;
+  align-self: stretch;
+  border-radius: 1rem;
+  border: 1px solid var(--clr-light-border);
+  background: var(--clr-card-background);
+  justify-content: space-between;
+  color: var(--clr-base-text);
 }
 
 h4 {
-    margin: 0;
+  margin: 0;
 }
 
 .link {
-    padding: 8px 16px;
-    justify-content: center;
-    align-items: center;
-    gap: 8px;
-    border-radius: 8px;
-    border: 1px solid var(--ui-10, #F3F3F3);
-    background: var(--ui-12, #FFF);
+  padding: 0.5rem 1rem;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: 0.5rem;
+  border: 1px solid var(--ui-10, #F3F3F3);
+  background: var(--ui-12, #FFF);
 }
 
 .content {
-    display: flex;
-    align-items: flex-start;
-    gap: 24px;
-    flex: 1 0 0;
-    align-self: stretch;
-    flex-wrap: wrap;
+  display: flex;
+  align-items: flex-start;
+  gap: 1.5rem;
+  flex: 1 0 0;
+  align-self: stretch;
+  flex-wrap: wrap;
 }
 
 label {
-    font-size: 1rem;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 150%;
-    letter-spacing: -0.16px;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+  letter-spacing: -0.16px;
 }
 
 h2 {
-    font-size: 24px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: 150%;
-    letter-spacing: -0.24px;
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 150%;
+  letter-spacing: -0.24px;
 }
 
 .text-button-wrapper {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    align-content: center;
-    text-align: center;
-    gap: 0.25rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  align-content: center;
+  text-align: center;
+  gap: 0.25rem;
 }
 
 .settings-card {
-    display: flex;
-    padding: 24px;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 16px;
-    flex: 1 0;
-    align-self: stretch;
-    border-radius: 8px;
-    border: 1px solid var(--clr-light-border);
-    background: var(--clr-card-background);
-    flex-basis: 30.75rem;
+  display: flex;
+  padding: 1.5rem;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+  flex: 1 0;
+  align-self: stretch;
+  border-radius: 0.5rem;
+  border: 1px solid var(--clr-light-border);
+  background: var(--clr-card-background);
+  flex-basis: 30.75rem;
 }
 
 .option {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 0.5rem;
-    align-self: stretch;
-    padding: 0.25rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+  align-self: stretch;
+  padding: 0.25rem;
 }
 
 input,
 select {
-    display: flex;
-    padding: 8px 8px 8px 16px;
-    justify-content: center;
-    align-items: center;
-    gap: 8px;
-    border-radius: 8px;     
-    border: 1px solid var(--clr-light-border);
-    background: var(--clr-page-background);
+  display: flex;
+  padding: 0.5rem 0.5rem 0.5rem 1rem;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: 0.5rem;
+  border: 1px solid var(--clr-light-border);
+  background: var(--clr-page-background);
 }
 
 #brand-colour-picker {
-    padding: 0;
+  padding: 0;
 }
 
 .lightness-text {
-    margin: 0;
+  margin: 0;
 }
 
 .lightness-input {
-    display: flex;
-
-    gap: 0.5rem;
+  display: flex;
+  gap: 0.5rem;
 }
 
 .colours-card {
-    display: flex;
-    padding: 24px;
-    flex-direction: column;
-    align-items: center;
-    gap: 24px;
-    align-self: stretch;
-    border-radius: 8px;
-    border: 1px solid var(--clr-light-border);
-    background: var(--clr-card-background);
-    flex: 1 0 38.75rem;
+  display: flex;
+  padding: 1.5rem;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  align-self: stretch;
+  border-radius: 0.5rem;
+  border: 1px solid var(--clr-light-border);
+  background: var(--clr-card-background);
+  flex: 1 0 38.75rem;
 }
 
 .colours-card-header {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    align-self: stretch;
-    flex: 1 0 0;
-    justify-content: space-between;
-
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  align-self: stretch;
+  flex: 1 0 0;
+  justify-content: space-between;
 }
 
 .export-button {
-    display: flex;
-    padding: 8px 16px;
-    justify-content: center;
-    align-items: center;
-    gap: 8px;
-    border-radius: 8px;
-    border: 1px solid var(--clr-dark-border);
-    background: var(--clr-base-text);
-    color: var(--clr-button-alternate-text);
+  display: flex;
+  padding: 0.5rem 1rem;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: 0.5rem;
+  border: 1px solid var(--clr-dark-border);
+  background: var(--clr-base-text);
+  color: var(--clr-button-alternate-text);
 }
 
 .UI-colours,
@@ -176,85 +174,79 @@ select {
 .success-colours,
 .alert-colours,
 .brand-colour {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 8px;
-    flex: 1 0 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.5rem;
+  flex: 1 0 0;
 }
 
-
 .category {
-    display: flex;
-    align-items: center;
-    gap: 4px;
-    align-self: stretch;
-    justify-content: space-between;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  align-self: stretch;
+  justify-content: space-between;
+}
+
+.lock-button.open,
+.lock-button {
+  display: flex;
+  padding: 0.5rem 0.5rem 0.5rem 1rem;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: 0.5rem;
+  border: 1px solid var(--clr-light-border);
 }
 
 .lock-button.open {
-    display: flex;
-    padding: 8px 8px 8px 16px;
-    justify-content: center;
-    align-items: center;
-    gap: 8px;
-    border-radius: 8px;
-    border: 1px solid var(--clr-dark-border);
-    background: var(--clr-base-text);
-    color: var(--clr-button-alternate-text);
+  background: var(--clr-base-text);
+  color: var(--clr-button-alternate-text);
 }
 
 .lock-button {
-    display: flex;
-    padding: 8px 8px 8px 16px;
-    justify-content: center;
-    align-items: center;
-    gap: 8px;
-    border: 1px solid var(--clr-light-border);
-    background: var(--clr-button-alternate-text);
+  background: var(--clr-button-alternate-text);
 }
 
 .ph-lock-key-open {
-    margin-top: 0.125rem;
+  margin-top: 0.125rem;
 }
 
-/* margin-top to better centre the padlock icon */
-
 .palette-row {
-    display: flex;
-    align-items: flex-start;
-    gap: 24px;
-    align-self: stretch;
+  display: flex;
+  align-items: flex-start;
+  gap: 1.5rem;
+  align-self: stretch;
 }
 
 .swatch-strips {
-    display: flex;
-    align-items: flex-start;
-    align-content: flex-start;
-    gap: 0.25rem;
-    align-self: stretch;
-    flex-wrap: wrap;
+  display: flex;
+  align-items: flex-start;
+  align-content: flex-start;
+  gap: 0.25rem;
+  align-self: stretch;
+  flex-wrap: wrap;
 }
 
 .swatch-row {
-    display: flex;
-    flex-direction: row;
-    gap: 0.25rem;
-    flex: 1 0 0;
+  display: flex;
+  flex-direction: row;
+  gap: 0.25rem;
+  flex: 1 0 0;
 }
 
 .swatch {
-    width: 46px;
-    height: 46px;
-    border: solid red 1px; /* placeholder border for visual clarity */
-    border-radius: 0.25rem;
-    flex: 1 0 2.875rem;
+  width: 2.875rem;
+  height: 2.875rem;
+  border: solid red 1px;
+  border-radius: 0.25rem;
 }
 
 .lock-status {
-    width: 1rem;
+  width: 1rem;
 }
 
 button:hover {
-    cursor: pointer;
-}  
+  cursor: pointer;
+}
