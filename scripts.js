@@ -1,7 +1,8 @@
 // These two functions I found online and have tested them for multiple values and work as intended
 // percentage values are returned in decimal form but are easily adjusted when they are called 
-function hexToHSL(hex) {
 
+// Function to convert hex colour to HSL
+function hexToHSL(hex) {
   hex = hex.replace("#", "");
 
   const r = parseInt(hex.substring(0, 2), 16) / 255;
@@ -21,13 +22,17 @@ function hexToHSL(hex) {
   } else {
     h = (4 + (r - g) / (max - min)) % 6;
   }
+  
+  // Adjust h if it is negative
+  if (h < 0) {
+    h += 6;
+  }
+  
   h = Math.round(h * 60);
 
-  
   let l = (max + min) / 2;
-
- 
   let s;
+  
   if (max === min) {
     s = 0;
   } else if (l <= 0.5) {
@@ -35,23 +40,27 @@ function hexToHSL(hex) {
   } else {
     s = (max - min) / (2 - max - min);
   }
+  
   s = Math.round(s * 100);
 
-  return { h, s, l };
+  return {h, s, l};
 };
 
+// Function to convert HSL to RGB
 function hslToRGB(h, s, l) {
-
+  // Convert HSL values to the range of 0 to 1
   const hNormalized = h / 360;
   const sNormalized = s / 100;
   const lNormalized = l / 100;
 
+  // Calculate intermediate values
   const c = (1 - Math.abs(2 * lNormalized - 1)) * sNormalized;
   const x = c * (1 - Math.abs((hNormalized * 6) % 2 - 1));
   const m = lNormalized - c / 2;
 
   let r, g, b;
 
+  // Calculate RGB values based on the hue
   if (hNormalized < 1 / 6) {
     r = c;
     g = x;
@@ -78,21 +87,15 @@ function hslToRGB(h, s, l) {
     b = x;
   }
 
+  // Adjust RGB values and convert to the range of 0 to 255
   r = Math.round((r + m) * 255);
   g = Math.round((g + m) * 255);
   b = Math.round((b + m) * 255);
 
   return { r, g, b };
-};
+}
 
-
-const colourInput = document.getElementById('brand-colour-picker');
-const colourValue = document.getElementById('colour-val');
-const hueInput = document.getElementById("hue-value");
-const saturationInput = document.getElementById("saturation-value");
-const lightnessInput = document.getElementById("min-lightness");
-
-// Function to convert RGB to hex color
+// Function to convert RGB to hex colour
 function rgbToHex(r, g, b) {
   const componentToHex = (c) => {
     const hex = c.toString(16);
@@ -106,28 +109,34 @@ function rgbToHex(r, g, b) {
   return `#${redHex}${greenHex}${blueHex}`;
 }
 
+const colourInput = document.getElementById('brand-colour-picker');
+const colourValue = document.getElementById('colour-val');
+const hueInput = document.getElementById("hue-value");
+const saturationInput = document.getElementById("saturation-value");
+const lightnessInput = document.getElementById("min-lightness");
+
 // This event listener updates the colour-val with the HSL value
-
 colourInput.addEventListener('input', () => {
-  let colorValue = hexToHSL(colourInput.value);
+  
+  let hslValue = hexToHSL(colourInput.value);
 
-  let hue = colorValue.h;
-  let saturation = colorValue.s;
-  let minLightness = Math.round(colorValue.l * 100);
+  let hue = hslValue.h;
+  let saturation = hslValue.s;
+  let minLightness = Math.round(hslValue.l * 100);
 
   colourValue.textContent = `HSL(${hue}, ${saturation}%, ${minLightness}%)`;
-  colourInput.value = rgbToHex(...Object.values(hslToRGB(hue, saturation, minLightness)));
+ // colourInput.value = rgbToHex(...Object.values(hslToRGB(hue, saturation, minLightness)));
 
   hueInput.value = parseInt(hue);
   saturationInput.value = parseInt(saturation);
   lightnessInput.value = parseInt(minLightness);
 });
 
-// Function to update the colour-val value based on HSL values selected by the user
+// Function to update the colour input value based on HSL values
 function updateColourInput() {
-  const hue = hueInput.value;
-  const saturation = saturationInput.value;
-  const minLightness = lightnessInput.value;
+  const hue = hueInput.valueAsNumber;
+  const saturation = saturationInput.valueAsNumber;
+  const minLightness = lightnessInput.valueAsNumber;
 
   colourValue.textContent = `HSL(${hue}, ${saturation}%, ${minLightness}%)`;
   colourInput.value = rgbToHex(...Object.values(hslToRGB(hue, saturation, minLightness)));
@@ -138,14 +147,15 @@ hueInput.addEventListener("input", updateColourInput);
 saturationInput.addEventListener("input", updateColourInput);
 lightnessInput.addEventListener("input", updateColourInput);
 
+
 //The bellow code updates the colour-val with the hex value.
 /*
-const colorInput = document.getElementById('brand-colour-picker');
+const colourInput = document.getElementById('brand-colour-picker');
 
-let colorValue = colorInput.value;
+let colourValue = colourInput.value;
 
-colorInput.addEventListener('input', () =>{
-  document.getElementById('colour-val').textContent = colorInput.value;
+colourInput.addEventListener('input', () =>{
+  document.getElementById('colour-val').textContent = colourInput.value;
 });
 */
 
