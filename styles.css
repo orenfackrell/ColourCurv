@@ -1,8 +1,12 @@
+/* 
+Root variables, page wrapper and universal styles; 
+*/
+
 :root {
   --clr-page-background: #FFFFFF;
+  --clr-button-alternate-text: #FFFFFF;
   --clr-card-background: #FCFCFC;
   --clr-base-text: #0D0D0D;
-  --clr-button-alternate-text: #FFFFFF;
   --clr-light-border: #F3F3F3;
   --clr-dark-border: #323232;
 }
@@ -25,6 +29,14 @@ body {
   gap: 1.5rem;
 }
 
+/*
+Header styling;
+*/
+
+h4 {
+  margin: 0;
+}
+
 .header {
   display: flex;
   padding: 1rem 1.5rem;
@@ -38,19 +50,19 @@ body {
   color: var(--clr-base-text);
 }
 
-h4 {
-  margin: 0;
-}
-
 .link {
   padding: 0.5rem 1rem;
   justify-content: center;
   align-items: center;
   gap: 0.5rem;
   border-radius: 0.5rem;
-  border: 1px solid var(--ui-10, #F3F3F3);
-  background: var(--ui-12, #FFF);
+  border: 1px solid var(--clr-light-border, #F3F3F3);
+  background: var(--clr-page-background, #FFF);
 }
+
+/*
+Arranging content flexbox;
+*/
 
 .content {
   display: flex;
@@ -61,12 +73,21 @@ h4 {
   flex-wrap: wrap;
 }
 
-label {
-  font-size: 1rem;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 150%;
-  letter-spacing: -0.16px;
+/*
+Settings card & children styles;
+*/
+
+.settings-card {
+  display: flex;
+  padding: 1.5rem;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+  flex: auto;
+  align-self: stretch;
+  border-radius: 0.5rem;
+  border: 1px solid var(--clr-light-border);
+  background: var(--clr-card-background);
 }
 
 h2 {
@@ -75,6 +96,15 @@ h2 {
   font-weight: 700;
   line-height: 150%;
   letter-spacing: -0.24px;
+}
+
+.option {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+  align-self: stretch;
+  padding: 0.25rem;
 }
 
 .text-button-wrapper {
@@ -87,28 +117,14 @@ h2 {
   gap: 0.25rem;
 }
 
-.settings-card {
-  display: flex;
-  padding: 1.5rem;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 1rem;
-  flex: 1 0;
-  align-self: stretch;
-  border-radius: 0.5rem;
-  border: 1px solid var(--clr-light-border);
-  background: var(--clr-card-background);
-  flex-basis: 30.75rem;
+label {
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+  letter-spacing: -0.16px;
 }
 
-.option {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 0.5rem;
-  align-self: stretch;
-  padding: 0.25rem;
-}
 
 input,
 select,
@@ -144,6 +160,10 @@ select,
   gap: 0.5rem;
 }
 
+/*
+Colours card & children styles
+*/
+
 .colours-card {
   display: flex;
   padding: 1.5rem;
@@ -154,7 +174,7 @@ select,
   border-radius: 0.5rem;
   border: 1px solid var(--clr-light-border);
   background: var(--clr-card-background);
-  flex: 1 0 38.75rem;
+  flex: auto;
 }
 
 .colours-card-header {
@@ -178,6 +198,14 @@ select,
   color: var(--clr-button-alternate-text);
 }
 
+.palette-row {
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  align-self: stretch;
+}
+
 .UI-colours,
 .notification-colours,
 .success-colours,
@@ -197,6 +225,8 @@ select,
   align-self: stretch;
   justify-content: space-between;
 }
+
+/* There are text-button-wrappers inside the category divs */
 
 .lock-button.open,
 .lock-button {
@@ -218,11 +248,13 @@ select,
   background: var(--clr-button-alternate-text);
 }
 
-.palette-row {
-  display: flex;
-  align-items: flex-start;
-  gap: 1.5rem;
-  align-self: stretch;
+.lock-status,
+.info {
+  width: 1rem;
+}
+
+button:hover {
+  cursor: pointer;
 }
 
 .swatch-strips {
@@ -249,11 +281,7 @@ select,
   flex: 1 0 0;
 }
 
-.lock-status,
-.info {
-  width: 1rem;
-}
 
-button:hover {
-  cursor: pointer;
-}
+/* 
+All of this styling works down to width of 415 pixels at which point text and elements in the settings card begin to wrap.
+*/
