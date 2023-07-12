@@ -50,10 +50,18 @@ h4 {
   color: var(--clr-base-text);
 }
 
+.links {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: end;
+  gap: 0.5rem 1.5rem;
+}
+
 .link {
   padding: 0.5rem 1rem;
   justify-content: center;
-  align-items: center;
+  align-items: end;
   gap: 0.5rem;
   border-radius: 0.5rem;
   border: 1px solid var(--clr-light-border, #F3F3F3);
@@ -123,8 +131,18 @@ label {
   font-weight: 400;
   line-height: 150%;
   letter-spacing: -0.16px;
+  text-align: left;
 }
 
+.lightness-text {
+  margin: 0;
+  text-align: left;
+}
+
+.lightness-input {
+  display: flex;
+  gap: 0.5rem;
+}
 
 input,
 select,
@@ -135,6 +153,11 @@ select,
   align-items: center;
   gap: 0.5rem;
   border-radius: 0.5rem;
+  font-size: 0.75rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+  letter-spacing: -0.16px;
   border: 1px solid var(--clr-light-border);
   background: var(--clr-page-background);
 }
@@ -150,15 +173,6 @@ select,
 
 }
 
-.lightness-text {
-  margin: 0;
-  text-align: center;
-}
-
-.lightness-input {
-  display: flex;
-  gap: 0.5rem;
-}
 
 /*
 Colours card & children styles
@@ -281,7 +295,14 @@ button:hover {
   flex: 1 0 0;
 }
 
-
 /* 
 All of this styling works down to width of 415 pixels at which point text and elements in the settings card begin to wrap.
 */
+
+@media (width < 403px) {
+  .swatch {
+    width: 2rem;
+    height: 2rem;
+    flex: 1 1 auto;
+  }
+}
