@@ -1,4 +1,4 @@
-// These two functions I found online and have tested them for multiple values and work as intended
+// These three conversion functions I found online and have tested them for multiple values and work as intended
 // percentage values are returned in decimal form but are easily adjusted when they are called 
 
 // Function to convert hex colour to HSL
@@ -129,7 +129,6 @@ colourInput.addEventListener('input', () => {
 
   hueInput.value = parseInt(hue);
   saturationInput.value = parseInt(saturation);
-  lightnessInput.value = parseInt(minLightness);
 });
 
 // Function to update the colour input value based on HSL values
@@ -148,7 +147,7 @@ saturationInput.addEventListener("input", updateColourInput);
 lightnessInput.addEventListener("input", updateColourInput);
 
 
-//The bellow code updates the colour-val with the hex value.
+//The below code updates the colour-val with the hex value.
 /*
 const colourInput = document.getElementById('brand-colour-picker');
 
@@ -159,6 +158,7 @@ colourInput.addEventListener('input', () =>{
 });
 */
 
+// These below functions update styles and classes of the locking buttons for the colours card
 const lockButtons = document.querySelectorAll('.lock-button');
 
 lockButtons.forEach((button) => {
@@ -168,6 +168,82 @@ lockButtons.forEach((button) => {
     const isOpen = img.src.includes('lock-key-open.svg');
     img.src = isOpen ? 'assets/icons/lock-key.svg' : 'assets/icons/lock-key-open.svg';
 
-    button.classList.toggle('open');
+    button.classList.toggle('locked');
   });
 });
+
+
+function getEasingFunction(easing) {
+  if (easing === 'quartIn') return t => Math.pow(t, 4);
+  if (easing === 'quartOut') return t => 1 - Math.pow(1 - t, 4);
+  if (easing === 'quartInOut') return t => t < 0.5 ? 8 * Math.pow(t, 4) : 1 - Math.pow(-2 * t + 2, 4) / 2;
+  if (easing === 'quintIn') return t => Math.pow(t, 5);
+  if (easing === 'quintOut') return t => 1 - Math.pow(1 - t, 5);
+  if (easing === 'quintInOut') return t => t < 0.5 ? 16 * Math.pow(t, 5) : 1 - Math.pow(-2 * t + 2, 5) / 2;
+  return d3['ease' + easing.charAt(0).toUpperCase() + easing.slice(1)];
+}
+
+function generateColors() {
+
+// If the button has the 'locked' class, do not proceed with the color generation.
+
+  let lockButton = document.getElementById('brand-lock');
+  
+  if (lockButton.classList.contains('locked')) {
+    return;
+  }
+
+  let hue = document.getElementById('hue-value').value;
+  let saturation = document.getElementById('saturation-value').value;
+  let easing = document.getElementById('easing').value;
+  let min = document.getElementById('min-lightness').value / 100;
+  let max = document.getElementById('max-lightness').value / 100;
+
+  let easingFunction = getEasingFunction(easing);
+
+  let lightnessValues = d3.range(min, max + 0.01, (max - min) / 11).map(easingFunction);
+
+  lightnessValues.forEach(function(lightness, i) {
+    let hslValue = 'hsl(' + hue + ', ' + saturation + '%, ' + (lightness * 100) + '%)';
+    let index = ("0" + (i + 1)).slice(-2);  // generates a two-digit string
+    let swatch = document.querySelector(`.brand-swatch${index}`);
+
+    if ('.brand') {
+      swatch.style.background = hslValue;
+      swatch.style.border = hslValue;
+    }
+  });
+}
+
+
+// Code below for if we want the graph to show in a later version
+/*
+
+let graph = document.getElementById('graph');
+graph.innerHTML = '';
+let svg = d3.select('#graph').append('svg').attr('width', 500).attr('height', 240);
+  let x = d3.scaleLinear().domain([0, 1]).range([0, 500]);
+  let y = d3.scaleLinear().domain([0, 1]).range([240, 0]);
+
+
+  let line = d3.line()
+      .x(function(d) { return x(d); })
+      .y(function(d) { return y(easingFunction(d)); });
+
+  svg.append('path')
+      .datum(d3.range(min, max + 0.1, (max - min) / 10))
+      .attr('fill', 'none')
+      .attr('stroke', 'steelblue')
+      .attr('stroke-width', 1.5)
+      .attr('d', line);
+
+  svg.selectAll('.dot')
+      .data(d3.range(min, max + 0.1, (max - min) / 10))
+      .enter().append('circle')
+      .attr('class', 'dot')
+      .attr('cx', function(d) { return x(d); })
+      .attr('cy', function(d) { return y(easingFunction(d)); })
+      .attr('r', 3.5);.
+
+*/
+

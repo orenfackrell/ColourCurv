@@ -242,7 +242,7 @@ Colours card & children styles
 
 /* There are text-button-wrappers inside the category divs */
 
-.lock-button.open,
+.lock-button.locked,
 .lock-button {
   display: flex;
   padding: 0.5rem 0.5rem 0.5rem 1rem;
@@ -253,7 +253,7 @@ Colours card & children styles
   border: 1px solid var(--clr-light-border);
 }
 
-.lock-button.open {
+.lock-button.locked {
   background: var(--clr-base-text);
   color: var(--clr-button-alternate-text);
 }
@@ -290,7 +290,7 @@ button:hover {
 .swatch {
   width: 2.875rem;
   height: 2.875rem;
-  border: solid red 1px;
+  border: solid 1px var(--clr-base-text);
   border-radius: 0.25rem;
   flex: 1 0 0;
 }
