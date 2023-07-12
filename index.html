@@ -32,7 +32,7 @@
                         <label for="brand-colour-picker">Brand Colour</label><img class="info" src="assets/icons/question.svg" alt="question mark inside a circle">
                     </div>
                     <div class="brand-colour-input">
-                        <input type="color" id="brand-colour-picker" oninput="generateColors()"><label id ="colour-val">HSL(0, 0%, 0%)</label> 
+                        <input type="color" id="brand-colour-picker" oninput="generateColours()"><label id ="colour-val">HSL(0, 0%, 0%)</label> 
                     </div>
                 </div>
 
@@ -41,7 +41,7 @@
                         <label for="hue-value">Base Hue</label><img class="info" src="assets/icons/question.svg" alt="question mark inside a circle">
                     </div>
                     <div class="hue-value-input">
-                        <input type="number" id="hue-value" min="0" max="360" value="0" step="1" oninput="generateColors()"> 
+                        <input type="number" id="hue-value" min="0" max="360" value="0" step="1" oninput="generateColours()"> 
                     </div>
 
                 </div>
@@ -50,7 +50,7 @@
                         <label for="saturation-value">Base Saturation</label><img class="info" src="assets/icons/question.svg" alt="question mark inside a circle">
                     </div>
                     <div class="saturation-value-input">
-                        <input type="number" id="saturation-value" min="0" max="100" value="0" step="1" oninput="generateColors()"> 
+                        <input type="number" id="saturation-value" min="0" max="100" value="0" step="1" oninput="generateColours()"> 
                     </div>
 
                 </div>                
@@ -61,8 +61,8 @@
                 </label>Lightness</p> <img class="info" src="assets/icons/question.svg" alt="question mark inside a circle">
                     </div>
                     <div class="lightness-input">
-                        <input type="number" id="min-lightness" min="0" max="100" value="5" step="1" oninput="generateColors()"> 
-                        <input type="number" id="max-lightness" min="0" max="100" value="95" step="1" oninput="generateColors()"> 
+                        <input type="number" id="min-lightness" min="0" max="100" value="5" step="1" oninput="generateColours()"> 
+                        <input type="number" id="max-lightness" min="0" max="100" value="95" step="1" oninput="generateColours()"> 
                     </div>
                 </div>
 
@@ -71,7 +71,7 @@
                         <label for="scale-select">Lightness Scale</label><img class="info" src="assets/icons/question.svg" alt="question mark inside a circle">
                     </div>
                     <div class="scale-input">
-                <select id="easing" name="easing" oninput="generateColors()">
+                <select id="easing" name="easing" oninput="generateColours()">
                     <option value="linear">Linear</option>
                     <option value="quadInOut">Quad InOut</option>
                     <option value="cubicInOut">Cubic InOut</option>

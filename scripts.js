@@ -183,7 +183,7 @@ function getEasingFunction(easing) {
   return d3['ease' + easing.charAt(0).toUpperCase() + easing.slice(1)];
 }
 
-function generateColors() {
+function generateColours() {
 
 // If the button has the 'locked' class, do not proceed with the color generation.
 
