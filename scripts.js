@@ -132,7 +132,7 @@ colourInput.addEventListener('input', () => {
 });
 
 // Function to update the colour input value based on HSL values
-function updateColourInput() {
+/* function updateColourInput() {
   const hue = hueInput.valueAsNumber;
   const saturation = saturationInput.valueAsNumber;
   const minLightness = lightnessInput.valueAsNumber;
@@ -145,10 +145,12 @@ function updateColourInput() {
 hueInput.addEventListener("input", updateColourInput);
 saturationInput.addEventListener("input", updateColourInput);
 lightnessInput.addEventListener("input", updateColourInput);
+*/
 
-
-//The below code updates the colour-val with the hex value.
 /*
+
+//The below code updates colour-val
+
 const colourInput = document.getElementById('brand-colour-picker');
 
 let colourValue = colourInput.value;
@@ -183,18 +185,44 @@ function getEasingFunction(easing) {
   return d3['ease' + easing.charAt(0).toUpperCase() + easing.slice(1)];
 }
 
-function generateColours() {
-
-// If the button has the 'locked' class, do not proceed with the color generation.
-
-  let lockButton = document.getElementById('brand-lock');
-  
-  if (lockButton.classList.contains('locked')) {
-    return;
+// These three shift functions convert the given hue value to the decided range for red, blue, green
+// Given red hue range is from 0-10 and 340-360
+function redShift(x) {
+  if (x < 10 || x > 340) {
+    return x;
+  } else if (10 <= x <= 180) {
+    return (x - 10) % 11;
+  } else {
+    return (x -180) % 21 + 340;
   }
+};
 
+// Given blue hue range is from 220-260
+function blueShift(x) {
+  if (0 <= x <180) {
+  return (x % 21) + 220;
+} else {
+  return ((x - 180) %  21) + 240;}
+};
+
+// Given green hue range is from 100-130
+function greenShift(x) {
+  if (0<= x <=180) {
+    return (x % 16) + 100;
+  } else {
+    return ((x-180) % 16) + 115
+  }
+}
+
+function generateColours() {  
+
+  let str = document.getElementById('colour-val').textContent;
+  let hslValue = str.match(/\d+/g).map(Number);
+
+  let brandHue = hslValue[0]
+  let brandSaturation = hslValue[1]
   let hue = document.getElementById('hue-value').value;
-  let saturation = document.getElementById('saturation-value').value;
+  let saturation = document.getElementById('saturation-value').value
   let easing = document.getElementById('easing').value;
   let min = document.getElementById('min-lightness').value / 100;
   let max = document.getElementById('max-lightness').value / 100;
@@ -204,16 +232,57 @@ function generateColours() {
   let lightnessValues = d3.range(min, max + 0.01, (max - min) / 11).map(easingFunction);
 
   lightnessValues.forEach(function(lightness, i) {
-    let hslValue = 'hsl(' + hue + ', ' + saturation + '%, ' + (lightness * 100) + '%)';
     let index = ("0" + (i + 1)).slice(-2);  // generates a two-digit string
-    let swatch = document.querySelector(`.brand-swatch${index}`);
+  
+    let brandColour = 'hsl(' + brandHue + ', ' + brandSaturation + '%, ' + (lightness * 100) + '%)';
+    let brandSwatch = document.querySelector(`.brand-swatch${index}`);
+  
+    let alertHue = redShift(hue); 
+    let alertColour = 'hsl(' + alertHue + ', ' + saturation + '%, ' + (lightness * 100) + '%)';
+    let alertSwatch = document.querySelector(`.alert-swatch${index}`);
+      
+    
+    let successHue = greenShift(hue);
+    let successColour = 'hsl(' + successHue + ', ' + saturation + '%, ' + (lightness * 100) + '%)';;
+    let successSwatch = document.querySelector(`.success-swatch${index}`);
 
-    if ('.brand') {
-      swatch.style.background = hslValue;
-      swatch.style.border = hslValue;
+    let notificationHue = blueShift(hue);
+    let notificationColour = 'hsl(' + notificationHue + ', ' + saturation + '%, ' + (lightness * 100) + '%)';;;
+    let notificationSwatch = document.querySelector(`.notification-swatch${index}`);;
+    
+
+    let uiColours = 'hsl(' + hue + ', 0%, ' + (lightness * 100) + '%)'
+    let uiSwatch = document.querySelector(`.UI-swatch${index}`);   
+    
+    const brandLock = document.getElementById('brand-lock');
+    const alertLock = document.getElementById('alert-lock');
+    const successLock = document.getElementById('success-lock');
+    const notificationLock = document.getElementById('notification-lock');
+    const uiLock = document.getElementById('UI-lock');
+    
+  
+    if (alertSwatch && (!alertLock || !alertLock.classList.contains('locked'))) {
+      alertSwatch.style.background = alertColour;
+      alertSwatch.style.border = alertColour;
+    }
+    if (brandSwatch && (!brandLock || !brandLock.classList.contains('locked'))) {
+      brandSwatch.style.background = brandColour;
+      brandSwatch.style.border = brandColour;
+    }
+    if (successSwatch && (!successLock || !successLock.classList.contains('locked'))) {
+      successSwatch.style.background = successColour;
+      successSwatch.style.border = successColour;
+    }
+    if (notificationSwatch && (!notificationLock || !notificationLock.classList.contains('locked'))) {
+      notificationSwatch.style.background = notificationColour;
+      notificationSwatch.style.border = notificationColour;
+    }
+    if (uiSwatch && (!uiLock || !uiLock.classList.contains('locked'))) {
+      uiSwatch.style.background = uiColours;
+      uiSwatch.style.border = uiColours;
     }
   });
-}
+};
 
 
 // Code below for if we want the graph to show in a later version
