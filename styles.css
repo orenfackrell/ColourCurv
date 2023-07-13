@@ -78,7 +78,6 @@ Arranging content flexbox;
   gap: 1.5rem;
   flex: 1 0 0;
   align-self: stretch;
-  flex-wrap: wrap;
 }
 
 /*
@@ -87,15 +86,19 @@ Settings card & children styles;
 
 .settings-card {
   display: flex;
-  padding: 1.5rem;
+  padding: 0.75rem;
   flex-direction: column;
   align-items: flex-start;
   gap: 1rem;
-  flex: auto;
+  flex: 1 0 21.5rem;
   align-self: stretch;
   border-radius: 0.5rem;
   border: 1px solid var(--clr-light-border);
   background: var(--clr-card-background);
+}
+
+.settings-card-heading {
+  margin: 0 0.75rem;
 }
 
 h2 {
@@ -113,6 +116,7 @@ h2 {
   gap: 0.5rem;
   align-self: stretch;
   padding: 0.25rem;
+  margin: 0 0.75rem;
 }
 
 .text-button-wrapper {
@@ -167,11 +171,18 @@ select,
 }
 
 .brand-colour-input {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
 }
+
+/* 
+.card-separator {
+  width: 100%;
+  border: 1px solid var(--clr-base-text);
+} 
+*/
 
 
 /*
@@ -284,7 +295,7 @@ button:hover {
   display: flex;
   flex-direction: row;
   gap: 0.25rem;
-  flex: 1 0 0;
+  flex: auto;
 }
 
 .swatch {
@@ -298,11 +309,34 @@ button:hover {
 /* 
 All of this styling works down to width of 415 pixels at which point text and elements in the settings card begin to wrap.
 */
-
-@media (width < 403px) {
+@media (width < 800px) {
   .swatch {
-    width: 2rem;
-    height: 2rem;
+    width: 2.375rem;
+    height: 2.375rem;
+    border: solid 1px var(--clr-base-text);
+    border-radius: 0.25rem;
+    flex: 1 0 0;
+  }
+}
+
+@media (width < 768px) {
+  .content {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.5rem;
+    flex: 1 0 0;
+    align-self: stretch;
+    flex-wrap: wrap;
+  }
+}
+
+@media (width < 418px) {
+  .settings-card{
+    flex: 1 1 auto;
+  }
+  .swatch {
+    width: 1.95rem;
+    height: 1.95rem;
     flex: 1 1 auto;
   }
 }
