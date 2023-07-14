@@ -316,3 +316,36 @@ let svg = d3.select('#graph').append('svg').attr('width', 500).attr('height', 24
 
 */
 
+function exportSVG() {
+  let swatches = document.querySelectorAll('.swatch');
+
+  let svgNS = "http://www.w3.org/2000/svg";
+  let serializedSwatches = Array.from(swatches).map((swatch, index) => {
+    // Create a new SVG rect element
+    let rect = document.createElementNS(svgNS, 'rect');
+
+    // Set the attributes of the rect to match the swatch div
+    let style = window.getComputedStyle(swatch);
+    rect.setAttribute('width', '80');
+    rect.setAttribute('height', '80');
+    rect.setAttribute('fill', style.backgroundColor);
+
+    // Position the rect elements so they don't overlap
+    // If the index is a multiple of 12, move to the next line
+    rect.setAttribute('x', (index % 12) * 88); // 100 width + 10 for some spacing
+    rect.setAttribute('y', Math.floor(index / 12) * 88); // 100 height + 10 for some spacing
+
+    return (new XMLSerializer()).serializeToString(rect);
+  }).join("");
+
+  let svgDocument = `<svg xmlns="http://www.w3.org/2000/svg">${serializedSwatches}</svg>`;
+
+  let svgBlob = new Blob([svgDocument], {'type': "image/svg+xml"});
+  let url = URL.createObjectURL(svgBlob);
+
+  let downloadLink = document.getElementById('download-link');
+  downloadLink.href = url;
+  downloadLink.download = 'swatches.svg';
+  downloadLink.style.display = 'block';
+}
+

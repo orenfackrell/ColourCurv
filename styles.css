@@ -215,6 +215,10 @@ Colours card & children styles
   color: var(--clr-button-alternate-text);
 }
 
+#download-link {
+  display: none;
+}
+
 .palette-row {
   display: flex;
   align-items: flex-start;
