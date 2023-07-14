@@ -109,28 +109,6 @@ function rgbToHex(r, g, b) {
   return `#${redHex}${greenHex}${blueHex}`;
 }
 
-const colourInput = document.getElementById('brand-colour-picker');
-const colourValue = document.getElementById('colour-val');
-const hueInput = document.getElementById("hue-value");
-const saturationInput = document.getElementById("saturation-value");
-const lightnessInput = document.getElementById("min-lightness");
-
-// This event listener updates the colour-val with the HSL value
-colourInput.addEventListener('input', () => {
-  
-  let hslValue = hexToHSL(colourInput.value);
-
-  let hue = hslValue.h;
-  let saturation = hslValue.s;
-  let minLightness = Math.round(hslValue.l * 100);
-
-  colourValue.textContent = `HSL(${hue}, ${saturation}%, ${minLightness}%)`;
-  colourInput.value = rgbToHex(...Object.values(hslToRGB(hue, saturation, minLightness)));
-
-  hueInput.value = parseInt(hue);
-  saturationInput.value = parseInt(saturation);
-});
-
 // Function to update the colour input value based on HSL values
 /* function updateColourInput() {
   const hue = hueInput.valueAsNumber;
@@ -284,6 +262,28 @@ function generateColours() {
   });
 };
 
+const colourInput = document.getElementById('brand-colour-picker');
+const colourValue = document.getElementById('colour-val');
+const hueInput = document.getElementById("hue-value");
+const saturationInput = document.getElementById("saturation-value");
+const lightnessInput = document.getElementById("min-lightness");
+
+// This event listener updates the colour-val with the HSL value
+colourInput.addEventListener('input', () => {
+  
+  let hslValue = hexToHSL(colourInput.value);
+
+  let hue = hslValue.h;
+  let saturation = hslValue.s;
+  let minLightness = Math.round(hslValue.l * 100);
+
+  colourValue.textContent = `HSL(${hue}, ${saturation}%, ${minLightness}%)`;
+  colourInput.value = rgbToHex(...Object.values(hslToRGB(hue, saturation, minLightness)));
+
+  hueInput.value = parseInt(hue);
+  saturationInput.value = parseInt(saturation);
+  generateColours();
+});
 
 // Code below for if we want the graph to show in a later version
 /*
